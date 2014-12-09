@@ -5,7 +5,7 @@ describe ThreeDeeCart::CustomerData do
   describe "#new" do
     it "should not allow object if a contactid is missing" do
       @customer_data = ThreeDeeCart::CustomerData.new()
-      @customer_data.valid?.should be_false
+      @customer_data.valid?.should be_falsey
       @customer_data.attributes.should eq({})
     end
 
@@ -48,36 +48,36 @@ describe ThreeDeeCart::CustomerData do
   describe "#insert?" do
     it "should return true if action is :insert" do
       @customer_data = ThreeDeeCart::CustomerData.new({:action => :insert})
-      @customer_data.insert?.should be_true
+      @customer_data.insert?.should be_truthy
     end
 
     it "should return false if action is not :insert" do
       @customer_data = ThreeDeeCart::CustomerData.new({:action => :update})
-      @customer_data.insert?.should be_false
+      @customer_data.insert?.should be_falsey
     end
   end
 
   describe "update?" do
     it "should return true if action is :update" do
       @customer_data = ThreeDeeCart::CustomerData.new({:action => :update})
-      @customer_data.update?.should be_true
+      @customer_data.update?.should be_truthy
     end
 
     it "should return false if action is not :update" do
       @customer_data = ThreeDeeCart::CustomerData.new({:action => :insert})
-      @customer_data.update?.should be_false
+      @customer_data.update?.should be_falsey
     end
   end
 
   describe "delete?" do
     it "should return true if action is :delete" do
       @customer_data = ThreeDeeCart::CustomerData.new({:action => :delete})
-      @customer_data.delete?.should be_true
+      @customer_data.delete?.should be_truthy
     end
 
     it "should retun false if action is not :delete" do
       @customer_data = ThreeDeeCart::CustomerData.new({:action => :update})
-      @customer_data.delete?.should be_false
+      @customer_data.delete?.should be_falsey
     end
   end
 

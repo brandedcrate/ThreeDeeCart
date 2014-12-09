@@ -40,7 +40,7 @@ describe ThreeDeeCart::Item do
     end
 
     it "should respond to #name" do
-      @item.respond_to?(:name).should be_true
+      @item.respond_to?(:name).should be_truthy
     end
 
     it "should return product name" do
@@ -54,11 +54,11 @@ describe ThreeDeeCart::Item do
     end
 
     it "should respond to #price" do
-      @item.respond_to?(:price).should be_true
+      @item.respond_to?(:price).should be_truthy
     end
 
     it "should return a float value" do
-      @item.price.is_a?(Float).should be_true
+      @item.price.is_a?(Float).should be_truthy
     end
 
     it "should return a valid casting" do
@@ -72,11 +72,11 @@ describe ThreeDeeCart::Item do
     end
 
     it "should respond to #cost" do
-      @item.respond_to?(:cost).should be_true
+      @item.respond_to?(:cost).should be_truthy
     end
 
     it "should return a float value" do
-      @item.cost.is_a?(Float).should be_true
+      @item.cost.is_a?(Float).should be_truthy
     end
 
     it "should return a valid casting" do
@@ -90,11 +90,11 @@ describe ThreeDeeCart::Item do
     end
 
     it "should respond to #cost" do
-      @item.respond_to?(:option_price).should be_true
+      @item.respond_to?(:option_price).should be_truthy
     end
 
     it "should return a float value" do
-      @item.option_price.is_a?(Float).should be_true
+      @item.option_price.is_a?(Float).should be_truthy
     end
 
     it "should return a valid casting" do

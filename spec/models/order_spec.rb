@@ -86,7 +86,7 @@ describe ThreeDeeCart::Order do
     it "should call update shipment and return true" do
       savon.expects(:update_order_shipment).with({message: {invoiceNum: "test", userKey: "testtesttest"}}).returns(File.read("spec/fixtures/updateOrderShipment.xml"))
       resp = ThreeDeeCart::Order.update_shipment({invoiceNum: "test"})
-      resp.should be_true
+      resp.should be_truthy
     end
   end
 

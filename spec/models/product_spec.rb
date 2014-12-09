@@ -180,7 +180,7 @@ describe ThreeDeeCart::Product do
     it "should accept a valid hash to constructor" do
       lambda {
         @product = ThreeDeeCart::Product.new(@valid_hash)
-      }.should_not raise_error(ThreeDeeCart::Exceptions::InvalidAttribute)
+      }.should_not raise_error
     end
 
     it "should raise an exception for invalid constructor hash value" do

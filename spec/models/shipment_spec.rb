@@ -30,7 +30,7 @@ describe ThreeDeeCart::Shipment do
     it "should accept a valid hash to constructor" do
       lambda {
         ThreeDeeCart::Shipment.new(@valid_hash)
-      }.should_not raise_error(ThreeDeeCart::Exceptions::InvalidAttribute)
+      }.should_not raise_error
     end
 
     it "should raise an exception for invalid constructor hash value" do
@@ -46,7 +46,7 @@ describe ThreeDeeCart::Shipment do
     end
 
     it "should respond to #full_name" do
-      @shipment.respond_to?(:full_name).should be_true
+      @shipment.respond_to?(:full_name).should be_truthy
     end
 
     it "should return the full name" do

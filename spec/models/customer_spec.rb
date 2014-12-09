@@ -60,13 +60,13 @@ describe ThreeDeeCart::Customer do
       savon.expects(:edit_customer).with({message: {customerData: customer_data.to_query, action: customer_data.action, userKey: "testtesttest"}}).returns(File.read("spec/fixtures/editCustomer.xml"))
 
       resp = ThreeDeeCart::Customer.edit(customer_data)
-      resp.should be_true
+      resp.should be_truthy
     end
 
     it "should return false when customer data is invalid" do
       customer_data = ThreeDeeCart::CustomerData.new({action: :update})
       resp = ThreeDeeCart::Customer.edit(customer_data)
-      resp.should be_false
+      resp.should be_falsey
     end
 
     it "should return false a non successful result is returned" do
@@ -74,7 +74,7 @@ describe ThreeDeeCart::Customer do
       savon.expects(:edit_customer).with({message: {customerData: customer_data.to_query, action: customer_data.action, userKey: "testtesttest"}}).returns(File.read("spec/fixtures/editCustomerFailure.xml"))
 
       resp = ThreeDeeCart::Customer.edit(customer_data)
-      resp.should be_false
+      resp.should be_falsey
     end
   end
 
@@ -129,7 +129,7 @@ describe ThreeDeeCart::Customer do
     it "should accept a valid hash to constructor" do
       lambda {
         @customer = ThreeDeeCart::Customer.new(@valid_hash)
-      }.should_not raise_error(ThreeDeeCart::Exceptions::InvalidAttribute)
+      }.should_not raise_error
     end
 
     it "should raise an exception for invalid constructor hash value" do
