@@ -12,6 +12,15 @@ module ThreeDeeCart
 
     @@wsdl = nil
     @@api_key = nil
+    @@store_url = nil
+
+    def self.store_url
+      @@store_url
+    end
+
+    def self.store_url=(wsdl)
+      @@store_url = store_url
+    end
     
     def self.wsdl
       @@wsdl
@@ -35,6 +44,7 @@ module ThreeDeeCart
         config = YAML::load(File.open(yaml_location))
         self.wsdl = config["wsdl"]
         self.api_key = config["api_key"]
+        self.store_url = config["store_url"]
       else
         raise ThreeDeeCart::Exceptions::MissingConfigurationFile, "cannot find #{yaml_location} 3dcart configuration file"
       end
