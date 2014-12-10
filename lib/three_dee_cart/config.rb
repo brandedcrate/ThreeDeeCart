@@ -18,7 +18,7 @@ module ThreeDeeCart
       @@store_url
     end
 
-    def self.store_url=(wsdl)
+    def self.store_url=(store_url)
       @@store_url = store_url
     end
     
