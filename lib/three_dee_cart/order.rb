@@ -19,6 +19,7 @@ module ThreeDeeCart
     attr_accessor :time
     attr_accessor :shipping
     attr_accessor :discount
+    attr_accessor :pay_token
     attr_accessor :promotions
     attr_accessor :gift_certificate_purchased
     attr_accessor :gift_certificate_used
