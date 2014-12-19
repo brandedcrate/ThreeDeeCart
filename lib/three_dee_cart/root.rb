@@ -14,8 +14,14 @@ module ThreeDeeCart
     def initialize(attributes_hash = {})
       @attributes = {}
 
+      if attributes_hash.class == Hash
+        hash = attributes_hash
+      elsif attributes_hash.class == Array
+        hash = attributes_hash[0]
+      end
+
       # Assign incoming hash value to a matching local instance variable, if exists
-      attributes_hash.each_pair do |attr_name, attr_value|
+      hash.each_pair do |attr_name, attr_value|
         next if attr_value.nil?
         if self.respond_to?("#{attr_name}=")
           self.send("#{attr_name}=", attr_value) 
