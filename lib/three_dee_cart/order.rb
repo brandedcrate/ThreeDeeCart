@@ -152,10 +152,31 @@ module ThreeDeeCart
       @affiliate_information = ThreeDeeCart::AffiliateInformation.new(value) if not value.nil?
     end
 
-    # Custom setter for shipping information, returns ThreeDeeCart::Shipment and ThreeDeeCart::Item for order items
     def shipping_information=(value)
       if not value.nil?
-        @shipment = ThreeDeeCart::Shipment.new(value[:shipment])
+
+        # set the last shipment to the base Shipment object
+        #@shipment = ThreeDeeCart::Shipment.new(value[:shipment])
+        
+        # create shipping objects
+        if not value[:shipment].nil?
+          shipment_obj = value[:shipment]
+          @shipments = []
+
+          if shipment_obj.is_a?(Hash)
+            @shipments << ThreeDeeCart::ShippingInformation.new(shipment_obj)
+          elsif shipment_obj.is_a?(Array)
+            if not shipment_obj.nil?
+              shipment_obj.each do |shipment_hash|
+                @shipments << ThreeDeeCart::ShippingInformation.new(shipment_hash)
+              end
+            end
+          else
+            raise(ThreeDeeCart::Exceptions::InvalidAttributeType, ThreeDeeCart::Exceptions::InvalidAttributeType::DEFAULT_MESSAGE % ["Item", shipment_obj.class])
+          end
+        end
+
+        # create order item objects        
         if not value[:order_items].nil?
           if value[:order_items].class.name != "Hash" || !value[:order_items].keys.include?(:item)
             raise(ThreeDeeCart::Exceptions::InvalidAttributeType, ThreeDeeCart::Exceptions::InvalidAttributeType::DEFAULT_MESSAGE % ["Item", value[:order_items].class])
@@ -176,7 +197,10 @@ module ThreeDeeCart
             raise(ThreeDeeCart::Exceptions::InvalidAttributeType, ThreeDeeCart::Exceptions::InvalidAttributeType::DEFAULT_MESSAGE % ["Item", item_obj.class])
           end
         end
+
       end
     end
+
+    
   end
 end

@@ -15,6 +15,7 @@ module ThreeDeeCart
   autoload :Order, 'three_dee_cart/order'
   autoload :Transaction, 'three_dee_cart/transaction'
   autoload :AffiliateInformation, 'three_dee_cart/affiliate_information'
+  autoload :ShippingInformation, 'three_dee_cart/shipping_information'
   autoload :Shipment, 'three_dee_cart/shipment'
   autoload :Item, 'three_dee_cart/item'
   autoload :CustomerData, 'three_dee_cart/customer_data'
