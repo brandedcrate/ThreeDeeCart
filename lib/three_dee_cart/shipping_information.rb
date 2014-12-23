@@ -3,6 +3,7 @@ Represents the 3D Cart shipping information object
 =end
 module ThreeDeeCart
   class ShippingInformation < ThreeDeeCart::Root
+    attr_accessor :shipping
     attr_accessor :shipment_id
     attr_accessor :shipment_date
     attr_accessor :method

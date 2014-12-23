@@ -34,7 +34,7 @@ module ThreeDeeCart
     attr_reader :billing_address
     attr_reader :comments
     attr_reader :affiliate_information
-    attr_reader :shipment
+    attr_reader :shipments
     attr_reader :order_items
 
     # Invokes :get_order SOAP operation
@@ -201,6 +201,6 @@ module ThreeDeeCart
       end
     end
 
-    
+
   end
 end
