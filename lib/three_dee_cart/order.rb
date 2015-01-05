@@ -23,6 +23,7 @@ module ThreeDeeCart
     attr_accessor :promotions
     attr_accessor :gift_certificate_purchased
     attr_accessor :gift_certificate_used
+    attr_accessor :gift_certificate_code
     attr_accessor :order_status
     attr_accessor :sales_person
     attr_accessor :ip
